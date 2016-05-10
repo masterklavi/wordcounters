@@ -42,7 +42,9 @@ function wordcounter($string)
             '\x{2005}'.
             '\x{200b}-\x{200d}'.
             '\x{2013}-\x{2014}'.
-            '\x{3000}';
+            '\x{3000}'.
+            '\x{fdea}'.
+            '\x{feff}';
 
     $count += (int)preg_match_all('/([^'.$spaces.'])+/u', $string);
 
