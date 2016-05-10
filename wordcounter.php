@@ -29,19 +29,22 @@ function wordcounter($string)
     $string = preg_replace('/['.$chars.']/u', ' ', $string, -1, $count);
 
     $spaces =
-            '\s'.
-            '\x{2013}-\x{2014}'.
+            '\x{0001}-\x{0002}'.
+            '\x{0005}'.
+            '\x{0007}'.
+            '\x{0009}-\x{000b}'.
+            '\x{000d}-\x{000e}'.
+            '\x{001f}-\x{0020}'.
+            '\x{00a0}'.
+            '\x{093d}'.
+            '\x{0964}-\x{0965}'.
+            '\x{0f08}-\x{0f14}'.
             '\x{2005}'.
             '\x{200b}-\x{200d}'.
+            '\x{2013}-\x{2014}'.
             '\x{3000}';
 
-    $chars =
-            '\x{205f}'.
-            '\x{2000}-\x{2004}'.
-            '\x{2006}-\x{200a}'.
-            '\x{2028}-\x{202f}';
-
-    $count += (int)preg_match_all('/([^'.$spaces.']|['.$chars.'])+/u', $string);
+    $count += (int)preg_match_all('/([^'.$spaces.'])+/u', $string);
 
     return $count;
 }
