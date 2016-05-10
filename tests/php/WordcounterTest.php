@@ -35,21 +35,6 @@ class WordcounterTest extends PHPUnit_Framework_TestCase
             $data[$comment] = [$comment, $count, $string];
         }
 
-        // raw
-        foreach (scandir('data/raw') as $filename)
-        {
-            if (!preg_match('#^(\d)_(\d+)\.txt$#', $filename, $matches))
-            {
-                continue;
-            }
-
-            $comment = 'raw-'.$matches[1];
-            $count = $matches[2];
-            $string = file_get_contents('data/raw/'.$filename);
-
-            $data[$comment] = [$comment, $count, $string];
-        }
-
         return $data;
     }
 }
