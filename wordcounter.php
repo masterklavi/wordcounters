@@ -46,7 +46,7 @@ function wordcounter($string)
             '\x{fdea}'.
             '\x{feff}';
 
-    $count += (int)preg_match_all('/([^'.$spaces.'])+/u', $string);
+    $count += (int)preg_match_all('/[^'.$spaces.']+/u', $string);
 
     return $count;
 }
