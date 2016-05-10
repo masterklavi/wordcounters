@@ -23,7 +23,7 @@ class WordcounterTest extends PHPUnit_Framework_TestCase
         // table
         foreach (scandir('data/table') as $filename)
         {
-            if (!preg_match('#^(\d)_(\d+)\.txt$#', $filename, $matches))
+            if (!preg_match('#^([\da-f])_(\d+)\.txt$#', $filename, $matches))
             {
                 continue;
             }
